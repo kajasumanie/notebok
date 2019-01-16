@@ -1,0 +1,53 @@
+
+<div class="container_user_1">
+  <h2>Home</h2>
+</div>
+<hr />
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Body</th>  
+      <th>Action</th>     
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let home of homes">  
+        <td>{{ home.id }}</td> 
+        <td>{{ home.date }}</td>   
+      <td>{{ home.title }}</td>
+      <td>{{ home.body }}</td>      
+      <td>
+        
+        <button asp-action="View" [routerLink]="['/view', home.id]"  class="btn btn-primary">ShowDetails</button>
+      </td>     
+    </tr>
+  </tbody>
+</table>  
+<br>
+
+<div class="conteiner_user_2">
+  <div class="col-md-4">      
+    <button [routerLink]="['/create']" class="btn btn-primary" >Create
+      <span aria-hidden="true"></span>
+    </button>
+    
+  </div>
+</div>
+
+<!--
+<br>
+<div class="conteiner_user_2">
+  <div class="col-md-4">
+    <button (click)="createEvent($event)" >Create</button>    
+    <button asp-action="Edit" href="/edit"class="btn btn-default">Edit</button>
+    <button asp-action="View" href="/view"class="btn btn-default">View</button>
+    <button asp-action="Delete" href="/delete" class="btn btn-default">Delete</button>
+  </div>
+</div>
+-->
+
+

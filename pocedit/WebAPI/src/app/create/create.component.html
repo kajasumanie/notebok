@@ -1,0 +1,40 @@
+<h2>Create</h2>
+<hr />
+<script>
+  angular.module('dateInputExample', [])
+    .controller('DateController', ['$scope', function($scope) {
+      $scope.example = {
+        todate: new Date()
+      };
+    }]);
+</script>
+    <div class="col-md-4">
+        <!--<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" >            -->
+            <form (ngSubmit)="saveUser()" #homeForm="ngForm">
+                <div class="form-group" style = "visibility:hidden;">
+                  <label for="id">ID</label>
+                  <input type="text" value="1" class="form-control" [(ngModel)]="home.id" name="id">
+                </div>
+                <div class="form-group">
+                  <label for="date-input">Date:</label>
+                  <input type="date:'medium'" min="{{ todate }}" class="form-control" [(ngModel)]="home.date" >
+              </div>
+                <div class="form-group">
+                  <label for="name">Title</label>
+                  <input type="text" class="form-control" [(ngModel)]="home.title" name="title" required>
+                </div>
+                <div class="form-group">
+                  <label for="address">Body</label>
+                  <input type="text" class="form-control" [(ngModel)]="home.body" name="body" required>
+                </div>
+                
+                <div class="form-group">
+                  <button type="submit"  class="btn btn-success" [disabled]="!homeForm.form.valid">Save</button>
+                </div>
+              </form>
+              <button [routerLink]="['/homes/']" class="btn btn-primary" >Back
+                <span aria-hidden="true"></span>
+              </button> 
+    </div>
+
+
